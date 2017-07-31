@@ -1,11 +1,45 @@
 var grid = [
-  $("row")[0].children,
-  $("row")[1].children,
-  $("row")[2].children,
+  $("row:eq(0) div"),
+  $("row:eq(1) div"),
+  $("row:eq(2) div"),
 ];
 
-function transformGrid(grid) {
-  
+grid.forEach(function (row) {
+  row.each(function (i, $el) {
+    $($el).on("click", handleClick);
+  });
+});
+
+function handleClick(e) {
+  var $el = $(e.currentTarget);
+  if (!$el.html()) {
+    $el.html(getNextMark());
+    if (isGameOver()) {
+      setTimeout(() => alert("Hey, you won!"), 0);
+    }
+  }
+}
+var lastMark = "O";
+function getNextMark() {
+  if (lastMark === "O") {
+    lastMark = "X"
+    return lastMark;
+  }
+  lastMark = "O";
+  return lastMark;
+}
+
+function isGameOver() {
+  return hasThreeInARow(stringifyGrid(grid));
+}
+
+function stringifyGrid(grid) {
+  // transform the grid of jquery nodes into a grid of strings
+  return grid.map(function(row) { // map over each row
+    return row.toArray().map(function($el) { // for each row, map over each $node
+      return $el.innerHTML; // set it to be its string value
+    })
+  });
 }
 
 function hasThreeInARow(arr) {
