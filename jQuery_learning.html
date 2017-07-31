@@ -1,0 +1,58 @@
+<!-- //jQuery Exercises
+//What is jQuery? What does it enable you to do?
+//  jQuery is a javascript library, it helps simplify DOM manipulation, instead of using the native DOM API.
+//What is the difference between a jQuery object and HTML Element?
+//  There are HTML elements inside a jQuery object, it wraps them, making your life easier and cleaner code.
+//What does the $ represent in jQuery?
+//  it's an alias for jQuery, it's a function exposed by the jQuery library -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercise</title>
+</head>
+<body>
+    <div id="container">
+        <h1 id="welcome"></h1>
+        <div class="list-container">
+            <ul class="nav">
+                <li class="nav-item">Home</li>
+                <li class="nav-item">About Us</li>
+                <li class="nav-item">Contact</li>
+                <li class="nav-item">Careers</li>
+                <li class="nav-item">Apply</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <ul class="footer-nav">
+                <li class="footer-nav-item">Learn More</li>
+                <li class="footer-nav-item">Blog</li>
+                <li class="footer-nav-item">Email Us</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script>
+//Write the necessary to code wait for the DOM to load in jQuery.
+$(function() {
+  //Select the footer element.
+  var $footer = $("footer");
+  //Select the div with an id of "container".
+  var $container = $("div#container");
+  //Select all of the lis inside of the ul with a class of nav.
+  var $liInULNav = $("ul.nav li");
+  //Select the third li inside of the div with a class of list-container.
+  var $LisInListContainer = $("div.list-container li");
+  var $thirdLi = $LisInListContainer[2];
+  //Select only the last li in each of the uls.
+  var $lisinulnav = $("ul.nav li");
+  var $lisinulfooter = $("ul.footer-nav li");
+  var $lastLiUlNav = $lisinulnav[$lisinulnav.length - 1];
+  var $lastLiUlFooter = $lisinulfooter[$lisinulfooter.length - 1];
+});
+
+
+</script>
+</html>
