@@ -4,8 +4,6 @@ from project import db
 from project.messages.forms import MessageForm, DeleteForm
 from project.users.models import User
 
-
-
 messages_blueprint = Blueprint(
 	'messages',
 	__name__,
