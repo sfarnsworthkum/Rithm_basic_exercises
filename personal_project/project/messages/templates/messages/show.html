@@ -2,7 +2,6 @@
 {% block content %}
 <h1>{{user.first_name}} {{user.last_name}}'s Messages</h1>
 <p> {{ message.text }} </p>
-<a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>
 
 <form action="{{url_for('messages.show_message', user_id=message.user_id, id=message.id)}}?_method=DELETE" method="POST">
 	 {{delete_form.hidden_tag()}}

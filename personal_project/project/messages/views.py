@@ -58,4 +58,3 @@ def edit_message(user_id, id):
 	form = MessageForm(obj=message)
 	delete_form = DeleteForm(request.form)
 	return render_template("messages/edit.html", user=user, message=message, form=form, delete_form=delete_form)
-	
